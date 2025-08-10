@@ -11,7 +11,7 @@ export default function CadastroDeVendas() {
     user_id: '',
     event_id: '',
     purchaseDate: '',
-    purchaseStatus: 'EMABERTO', // Atualizado para refletir o Enum correto
+    purchaseStatus: 'EMABERTO',
   });
 
   const [users, setUsers] = useState([]);
@@ -176,12 +176,12 @@ export default function CadastroDeVendas() {
                   <select
                     className="form-select"
                     id="purchaseStatus"
-                    name="purchaseStatus" // ATUALIZADO
+                    name="purchaseStatus"
                     value={formData.purchaseStatus}
                     onChange={handleChange}
                     required
                   >
-                    {/* É melhor enviar o nome do Enum que o backend espera */}
+
                     <option value="EMABERTO">Em Aberto</option>
                     <option value="PAGO">Pago</option>
                     <option value="CANCELADO">Cancelado</option>

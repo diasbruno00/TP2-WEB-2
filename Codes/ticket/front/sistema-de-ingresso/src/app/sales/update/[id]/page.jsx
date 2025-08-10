@@ -18,24 +18,21 @@ const formatarMoeda = (valor) => {
 
 const OPCOES_STATUS = ['EMABERTO', 'PAGO', 'CANCELADO', 'ESTORNADO'];
 
-// O componente recebe 'params' que contém os segmentos dinâmicos da URL
 export default function PaginaEditarVenda({ params }) {
   const router = useRouter();
-  const { id } = params; // Captura o ID da venda da URL
+  const { id } = params;
 
-  // Estado para armazenar os dados da venda que serão buscados
+
   const [venda, setVenda] = useState(null);
-  // Estado para controlar o novo status selecionado no formulário
   const [novoStatus, setNovoStatus] = useState('');
   
-  // Estados de controle da UI
   const [carregando, setCarregando] = useState(true);
   const [erro, setErro] = useState(null);
   const [salvando, setSalvando] = useState(false);
 
   
 
-  // Efeito para buscar os dados da venda na API assim que a página carregar
+
   useEffect(() => {
     if (!id) return;
 
@@ -55,7 +52,7 @@ export default function PaginaEditarVenda({ params }) {
     buscarDadosDaVenda();
   }, [id]);
 
-  // Função para lidar com o envio do formulário
+
   const handleSalvar = async (event) => {
     event.preventDefault();
     setSalvando(true);

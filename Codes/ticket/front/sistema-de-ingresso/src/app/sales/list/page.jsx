@@ -45,7 +45,7 @@ export default function ListaDeVendas() {
     fetchSalesData();
   }, []);
 
-  // ATUALIZAÇÃO: O filtro agora acessa o purchaseStatus dentro de salesDetailDTO
+
   useEffect(() => {
     if (statusFilter === 'TODOS') {
       setFilteredSales(allSales);
@@ -65,7 +65,7 @@ export default function ListaDeVendas() {
     }
   };
   
-  // ATUALIZAÇÃO: O ID da venda agora vem de salesDetailDTO
+
   const handleEditClick = (saleId) => {
     router.push(`/sales/update/${saleId}`);
   };
@@ -117,7 +117,7 @@ export default function ListaDeVendas() {
           <thead className="table-dark">
             <tr>
               <th>Data da Compra</th>
-              {/* ATUALIZAÇÃO: Adicionada a coluna Comprador */}
+
               <th>Comprador</th>
               <th>Evento</th>
               <th>Status</th>
@@ -129,12 +129,12 @@ export default function ListaDeVendas() {
           <tbody>
             {filteredSales.length > 0 ? (
               filteredSales.map((sale) => (
-                // ATUALIZAÇÃO: A chave (key) agora usa o ID de dentro de salesDetailDTO
+
                 <tr key={sale.salesDetailDTO.saleId}>
-                  {/* ATUALIZAÇÃO: Todos os acessos a dados da venda agora usam sale.salesDetailDTO.* */}
+
                   <td>{sale.salesDetailDTO.purchaseDate || 'N/A'}</td>
                   
-                  {/* ATUALIZAÇÃO: Adicionada a célula com o nome do usuário */}
+
                   <td>{sale.simplesUserDTO?.name || 'N/A'}</td>
 
                   <td>{sale.salesDetailDTO.eventDescription}</td>
@@ -148,7 +148,6 @@ export default function ListaDeVendas() {
                     <small className="text-muted">
                       Data do Evento: {sale.salesDetailDTO.eventDate || 'N/A'}<br />
                       ID da Venda: {sale.salesDetailDTO.saleId}<br />
-                      {/* ATUALIZAÇÃO: O ID do usuário também está dentro de salesDetailDTO */}
                       ID do Usuário: {sale.salesDetailDTO.userId}<br />
                     </small>
                   </td>
@@ -164,7 +163,6 @@ export default function ListaDeVendas() {
               ))
             ) : (
               <tr>
-                {/* ATUALIZAÇÃO: colSpan aumentado de 6 para 7 para acomodar a nova coluna */}
                 <td colSpan="7" className="text-center py-4">Nenhuma venda encontrada.</td>
               </tr>
             )}

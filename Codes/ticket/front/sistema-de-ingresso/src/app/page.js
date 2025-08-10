@@ -60,8 +60,8 @@ export default function HomePage() {
                 Lista de Vendas e Gerenciamento do Status
               </h2>
               <p>
-                 Visualize todas as vendas realizadas. Filtre por status (Aprovado, Pendente, etc.) e gerencie cada registro individualmente, alterando seu status conforme necessário.
-                 So sera listado vendas que possui relacionamento com usuarios e eventos.
+                 Visualize todas as vendas realizadas. Filtre por status (Pago, Em aberto, Cancelado, etc.) e gerencie cada registro individualmente, alterando seu status conforme necessário.
+
               </p>
               <Link href="/sales/list" className="btn btn-outline-secondary mt-auto">
                 Visualizar Todas as Vendas

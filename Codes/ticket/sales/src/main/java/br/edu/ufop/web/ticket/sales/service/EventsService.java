@@ -62,14 +62,15 @@ public class EventsService {
 
     public CreateEventsDTO getEventById(String id) {
 
+    
         UUID idConverter = UUID.fromString(id);
-
+        
         Optional<EventsModel> eventsModelOptional = eventsRepository.findById(idConverter);
-
+    
         if (eventsModelOptional.isEmpty()) {
             throw new RuntimeException("Evento não encontrado com o ID: " + id);
         }
-
+    
         return EventsConverter.toCreateEventsDTO(eventsModelOptional.get());
 
 
